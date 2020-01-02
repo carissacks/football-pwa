@@ -1,0 +1,14 @@
+{
+    "name": "Football is Life",
+    "short_name": "Football",
+    "description": "Aplikasi Sepakbola untuk membuat Anda tetap uptodate!",
+    "start_url": "/index.html",
+    "background_color": "#1F71D7",
+    "theme_color": "#1F71D7",
+    "icons": [{
+        "src": "icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }],
+    "gcm_sender_id": "417674891169"
+}

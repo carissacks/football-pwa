@@ -1,0 +1,69 @@
+/* @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap'); */
+
+#crew, #medpar{
+    margin: 5vh 0 0 0;
+    padding: 0;
+    width: 100%;
+}
+
+h1,h2,h3,h4{
+    font-family: 'Roboto Condensed', sans-serif;
+    src: "../assets/font/Roboto/RobotoCondensed-Regular.ttf";
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+}
+
+.justify,li{
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.title{
+    font-weight: bold;
+    /* color: #253cb1; */
+}
+
+.crew-detail p{
+    margin: 0;
+}
+
+.crew-detail{
+    margin-bottom: 2vh;
+}
+
+.blue-font{
+    color: #1f71d7;
+    font-weight: bold;
+}
+
+#nav{
+    background-image: linear-gradient(124.87deg,#3235C0 0%,#2A93EE 58.85%,#35C1EB 100%) ;
+    font-weight: bold;
+}
+nav .brand-logo {
+    font-size: 1.5rem;
+}
+
+#content{
+    margin: 0;
+    padding: 0;
+    padding-top: 5vh;
+    background-image: url("../assets/bg.svg");
+    background-position: center;
+    background-size: cover;
+    min-height: 80vh;
+}
+
+#teamLogo{
+    height: 250px;
+    width: auto;
+}
+
+#teams{
+    text-align: center;
+}
+
+.card .card-image img{
+    display: inline-block;
+    padding-top: 5%;
+}
