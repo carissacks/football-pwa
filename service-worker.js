@@ -1,18 +1,47 @@
-const CACHE_NAME = "firstpwa-v1";
+self.addEventListener('push', function(event){
+    var body;
+    if(event.data){
+        body= event.data.text();
+    }else{
+        body="Push message no payload";
+    }
+
+    var options= {
+        body: body,
+        icon: 'icon.png',
+        vibrate:[100,50,100],
+        data:{
+            dateOfArrival: Date.now(),
+            primaryKey: 1
+        }
+    };
+
+    event.waitUntil(
+        self.registration.showNotification('Push notification', options)
+    );
+});
+
+const CACHE_NAME = "football-v4";
 var urlsToCache = [
     "/",
     "/nav.html",
     "/index.html",
-    "/article.html",
-    // "/pages/home.html",
-    // "/pages/about.html",
-    // "/pages/contact.html",
+    "/teams.html",
+    "/pages/home.html",
+    "/pages/about.html",
+    "/pages/teams.html",
+    "/pages/saved.html",
     "/css/materialize.min.css",
+    "/css/style.css",
     "/js/materialize.min.js",
     "/manifest.json",
     "/js/nav.js",
     "/js/api.js",
-    "/icon.png"
+    "/js/idb.js",
+    "/js/db.js",
+    "/icon.png",
+    "/assets/PremiereLeagueLogo.png",
+    "/assets/bg.svg"
 ];
 
 self.addEventListener("install", function (event) {
@@ -24,7 +53,10 @@ self.addEventListener("install", function (event) {
 });
 
 self.addEventListener("fetch", function (event) {
-    var base_url = "https://readerapi.codepolitan.com/";
+    var base_url = "https://api.football-data.org/";
+    // var header = {
+    //     'X-Auth-Token': '062bf95c563b4affb2a02e41705a32a5'
+    // }
 
     if (event.request.url.indexOf(base_url) > -1) {
         event.respondWith(

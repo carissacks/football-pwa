@@ -3,6 +3,7 @@
     "short_name": "Football",
     "description": "Aplikasi Sepakbola untuk membuat Anda tetap uptodate!",
     "start_url": "/index.html",
+    "display": "standalone",
     "background_color": "#1F71D7",
     "theme_color": "#1F71D7",
     "icons": [{

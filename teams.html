@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="theme-color" content="#00897B">
     <title>Premiere League</title>
 </head>
@@ -16,19 +17,34 @@
     <!-- Nav -->
     <nav class="nav-wrapper" id="nav">
         <a href="index.html" class="brand-logo" style="margin-left: 2%;">PREMIERE LEAGUE</a>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger">☰</a>
+        <a href="./index.html" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">arrow_back
+            </i></a>
 
         <ul class="topnav right hide-on-med-and-down"></ul>
         <ul class="sidenav" id="nav-mobile"></ul>
     </nav>
     <!-- End of Nav -->
     <div id="content">
+
+        <div class="row hide-on-small-only">
+            <div class="col s6 offset-s1">
+                <a href="./index.html">Home</a>
+                >
+                <a href="./index.html#teams">Teams</a>
+            </div>
+        </div>
         <div class="container" id="mainContent"></div>
+        <div class="fixed-action-btn">
+            <a href="" class="btn-floating btn-large red" id="save" title="Add to Fav">
+                <i class="large material-icons" id="fav-logo">favorite</i>
+            </a>
+        </div>
     </div>
     <script src="js/materialize.min.js"></script>
-    <script src="js/nav.js"></script>
+    <!-- <script src="js/nav.js"></script> -->
     <script src="js/api.js"></script>
     <script src="js/idb.js"></script>
+    <script src="js/db.js"></script>
     <script>
         // REGISTER SERVICE WORKER
         if ("serviceWorker" in navigator) {
@@ -48,7 +64,30 @@
 
         // REQUEST API UNTUK PERTAMA KALI
         document.addEventListener("DOMContentLoaded", function () {
-            getTeamsById();
+            var urlParams= new URLSearchParams(window.location.search);
+            var isFromSaved= urlParams.get("saved");
+            var btnSave= document.getElementById("save");
+
+            if(isFromSaved){
+                btnSave.title="Remove from Fav";
+                btnSave.href="index.html#saved";
+                document.getElementById("fav-logo").innerHTML="favorite_border";
+                var item= getSavedTeamById();
+                console.log("dari saved");
+            }else{
+                var item= getTeamsById();
+            }
+
+            btnSave.onclick= function(){
+                console.log("Tombol Fav di klik bruh");
+                if(isFromSaved){
+                    deleteTeam();
+                }else{
+                    item.then(function(team){
+                        saveForLater(team);
+                    });
+                }
+            }
         });
     </script>
 </body>

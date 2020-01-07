@@ -63,7 +63,28 @@ nav .brand-logo {
     text-align: center;
 }
 
+#team_img{
+    min-height: 350px;
+    width: auto;
+}
+
+#positionLogo{
+    max-height: 1.75vw;
+}
+
+@media (min-width: 768px){
+    #team_img{
+        height: 350px;
+        width: auto;
+    }
+ }
+
 .card .card-image img{
     display: inline-block;
     padding-top: 5%;
+}
+
+.square{
+    width: 2vw;
+    height: 2vw;
 }

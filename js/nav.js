@@ -49,13 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 switch(page){
                     case "home":
                         getLeague(); 
+                        getSchedules();
+                        getStandings();
                         break;
                     case "teams":
                         getTeams(); 
                         break;
-                    case "schedule":
-                        getSchedules(); 
-                        break;
+                    // case "standings":
+                    //     getStandings(); 
+                    //     break;
                     case "saved":
                         getSavedTeams(); 
                         break;
