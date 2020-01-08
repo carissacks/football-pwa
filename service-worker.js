@@ -54,9 +54,6 @@ self.addEventListener("install", function (event) {
 
 self.addEventListener("fetch", function (event) {
     var base_url = "https://api.football-data.org/";
-    // var header = {
-    //     'X-Auth-Token': '062bf95c563b4affb2a02e41705a32a5'
-    // }
 
     if (event.request.url.indexOf(base_url) > -1) {
         event.respondWith(

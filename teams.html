@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" href="/icon.png">
     <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.json">
@@ -33,10 +34,24 @@
                 <a href="./index.html#teams">Teams</a>
             </div>
         </div>
-        <div class="container" id="mainContent"></div>
+        <div class="container" id="mainContent">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="fixed-action-btn">
             <a href="" class="btn-floating btn-large red" id="save" title="Add to Fav">
-                <i class="large material-icons" id="fav-logo">favorite</i>
+                <i class="large material-icons" id="fav-logo">favorite_border</i>
             </a>
         </div>
     </div>
@@ -62,28 +77,33 @@
             console.log("ServiceWorker belum didukung browser ini.");
         }
 
-        // REQUEST API UNTUK PERTAMA KALI
         document.addEventListener("DOMContentLoaded", function () {
-            var urlParams= new URLSearchParams(window.location.search);
-            var isFromSaved= urlParams.get("saved");
-            var btnSave= document.getElementById("save");
+            var urlParams = new URLSearchParams(window.location.search);
+            var isFromSaved = urlParams.get("saved");
+            var btnSave = document.getElementById("save");
 
-            if(isFromSaved){
-                btnSave.title="Remove from Fav";
-                btnSave.href="index.html#saved";
-                document.getElementById("fav-logo").innerHTML="favorite_border";
-                var item= getSavedTeamById();
+            // var yes= isFav();
+            // console.log(isFav());
+
+            if (isFromSaved) {
+                btnSave.title = "Remove from Fav";
+                console.log(window.location.href);
+                console.log((window.location.href).substring(0,(window.location.href).length-11));
+                btnSave.href = (window.location.href).substring(0,(window.location.href).length-11);
+                document.getElementById("fav-logo").innerHTML = "favorite";
+                var item = getSavedTeamById();
                 console.log("dari saved");
-            }else{
-                var item= getTeamsById();
+            } else {
+                btnSave.href = window.location+"&saved=true";
+                var item = getTeamsById();
             }
 
-            btnSave.onclick= function(){
+            btnSave.onclick = function () {
                 console.log("Tombol Fav di klik bruh");
-                if(isFromSaved){
+                if (isFromSaved) {
                     deleteTeam();
-                }else{
-                    item.then(function(team){
+                } else {
+                    item.then(function (team) {
                         saveForLater(team);
                     });
                 }

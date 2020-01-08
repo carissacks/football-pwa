@@ -55,18 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     case "teams":
                         getTeams(); 
                         break;
-                    // case "standings":
-                    //     getStandings(); 
-                    //     break;
                     case "saved":
                         getSavedTeams(); 
                         break;
                 }
-                // if (page === "teams") {
-                //     getTeams();
-                // } else if (page === "saved") {
-                //     getSavedTeams();
-                // }
 
                 if (this.status == 200) {
                     content.innerHTML = xhttp.responseText;

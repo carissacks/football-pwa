@@ -1,5 +1,5 @@
-var base_url = "https://api.football-data.org/";
-var header = {
+const base_url = "https://api.football-data.org/";
+const header = {
     'X-Auth-Token': '062bf95c563b4affb2a02e41705a32a5'
 }
 
@@ -313,6 +313,25 @@ function getSavedTeamById() {
     })
 }
 
+// function isFav(){
+//     var urlParams = new URLSearchParams(window.location.search);
+//     var idParam = urlParams.get("id");
+//     var flag= false;
+
+//     getById(idParam).then(function (data) {
+//         console.log("dari is");
+//         console.log(data);
+//         if(data != null){
+//             console.log("ada nih");
+//             flag= true;
+//             console.log("FLAG" +flag);
+//         }
+//         else console.log("gaada nih");
+//         if(flag) return true;
+//         else return false;
+//     });
+// }
+
 function getLeague() {
     if ("caches" in window) {
         caches.match(base_url + "v2/competitions/2021").then(
@@ -570,10 +589,6 @@ function getStandings() {
                 </div>`;
             document.getElementById("standings").innerHTML = standingHTML;
         }).catch(error);
-}
-
-function getMatches() {
-
 }
 
 function deleteTeam(){

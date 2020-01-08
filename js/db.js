@@ -13,12 +13,13 @@ function saveForLater(team) {
             var tx = db.transaction("teams", "readwrite");
             var store = tx.objectStore("teams");
             console.log(team);
-            store.add(team);
+            store.put(team); //kalo add nanti error kl misalkan datanya udah ada. kl put nanti ngereplace
             return tx.complete;
         })
         .then(function () {
             console.log("Team ditambahkan ke favorit.");
-            alert("Team ditambahkan ke list favorit");
+            M.toast({html: 'Team ditambahkan ke list favorit'});
+            // alert("Team ditambahkan ke list favorit");
         });
 }
 
@@ -33,7 +34,8 @@ function deleteFromFav(id){
         })
         .then(function(){
             console.log("Team dihapus dari favorit");
-            alert("Team dihapus dari list favorit");
+            M.toast({html: 'Team dihapus dari favorit'});
+            // alert("Team dihapus dari list favorit");
         })
 }
 
