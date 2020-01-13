@@ -313,24 +313,26 @@ function getSavedTeamById() {
     })
 }
 
-// function isFav(){
-//     var urlParams = new URLSearchParams(window.location.search);
-//     var idParam = urlParams.get("id");
-//     var flag= false;
+function isFav(){
+    var urlParams = new URLSearchParams(window.location.search);
+    var idParam = urlParams.get("id");
+    var flag= false;
 
-//     getById(idParam).then(function (data) {
-//         console.log("dari is");
-//         console.log(data);
-//         if(data != null){
-//             console.log("ada nih");
-//             flag= true;
-//             console.log("FLAG" +flag);
-//         }
-//         else console.log("gaada nih");
-//         if(flag) return true;
-//         else return false;
-//     });
-// }
+    getById(idParam).then(function (data) {
+        console.log("dari is");
+        console.log(data);
+        if(data != null){
+            console.log("ada nih");
+            flag= true;
+            console.log("FLAG" +flag);
+            window.location.replace(window.location+"&saved=true");
+        }
+        else{
+            console.log("gaada nih");
+            window.location.replace(window.location+"&saved=false");
+        }
+    });
+}
 
 function getLeague() {
     if ("caches" in window) {

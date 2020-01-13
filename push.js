@@ -1,8 +1,8 @@
 var webPush= require('web-push');
 
 const vapidKeys= {
-    "publicKey":"BOSFJ05UurL48Qbnnr8NiQaD8tvomTBzS9jRkTkbPQW3kkHt2QRxCCD3DpcQFqu-nOUP3WkTQzJrfJDOM-v19Hc",
-    "privateKey":"jK6uS2--cenCd-jrYJikxuH9VSxhKXdR-qycjGj42Do"
+    "publicKey":"BAmo3DBm20dJE1OijcFM580e7DSENmQYcm-fysH0U6k2VqhNWAmWBjKVbzNO4BniLJJDSyySbdyQG86Td_02eOM",
+    "privateKey":"iNlLMMDe8YF-jYDUsWzO1tH4gbzlDdERLW0Vb6ieyyY"
 };
 
 webPush.setVapidDetails(
@@ -11,17 +11,17 @@ webPush.setVapidDetails(
     vapidKeys.privateKey
 );
 var pushSubscription= {
-    "endpoint": "https://fcm.googleapis.com/fcm/send/fmfCBFX08RM:APA91bH5DkV6ZRDjS8ardEq5yxWg5C9QUBaikgI7GxObEgDUjCAkv6DoszkOda514ubAEYP9ht6XXe3BsgjG4xItR8m1clTcb2kyjHWjr3tAswLMlbzU1TU4G7ezP0K9C0HQBiuOQ-0f",
+    "endpoint": "https://fcm.googleapis.com/fcm/send/eml1N1WfvAU:APA91bGmdZh_aSciaCoTjKU1kN1Vve_SJiHlq-SnQPpZYBjEWMnqGiUbkNFU3yhoszwcHOW8M0Z2cTVnUe2ka-uIljAhutRn9-wm6NRbyhP61q87-BhImY1h2M9pr0EvUEflJMtOxKQT",
     "keys": {
-        "p256dh": "BNNixMLu2uAiQYhe01u8PrZfO9NL2P3cNYgeumMIv9T2+x47RDLl1Y8JzqNdCkaNjiS5TWoB+W5VUjlKWV6NdhM=",
-        "auth": "domkeil0bh3lP3qKFpmAhQ=="
+        "p256dh": "BOBc0D7Um9LgkjN6s32m2OEr+wJ+7FhULmtP5M07FtnBII+S6H+EzQz2jvv33hgWANZdc5MvWjiaGCs9YXPRdYs=",
+        "auth": "cguueWiVNH6PJ/qXif5kkQ=="
     }
 };
 
-var payload= "Yuk nonton Premiere League!.";
+var payload= "Yuk nonton Premiere League!";
 
 var options={
-    gcmAPIKey: '417674891169',
+    gcmAPIKey: '690465620045',
     TTL: 60
 };
 

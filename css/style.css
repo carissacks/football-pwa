@@ -1,14 +1,5 @@
-/* @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap'); */
-
-#crew, #medpar{
-    margin: 5vh 0 0 0;
-    padding: 0;
-    width: 100%;
-}
-
 h1,h2,h3,h4{
     font-family: 'Roboto Condensed', sans-serif;
-    src: "../assets/font/Roboto/RobotoCondensed-Regular.ttf";
     margin-bottom: 1vh;
     margin-top: 1vh;
 }
@@ -87,4 +78,15 @@ nav .brand-logo {
 .square{
     width: 2vw;
     height: 2vw;
+}
+
+.loader{
+    width: 100vh;
+    height: 80vh;
+}
+
+.loader .preloader-wrapper{
+    position: absolute;
+    left: 50%;
+    top: 50%;
 }
